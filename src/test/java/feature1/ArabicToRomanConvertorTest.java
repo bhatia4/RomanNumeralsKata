@@ -49,23 +49,32 @@ public class ArabicToRomanConvertorTest {
 	
 	@Test
 	public void testForNumberSurroundedBySpaces() {
-		assertEquals(convertor.convertArabicNumberToRomanNumeral(" 1 "), "I");
+		assertEquals("I", convertor.convertArabicNumberToRomanNumeral(" 1 "));
 	}
 	
 	@Test
 	public void testRomanNumeralForOne() {
-		assertEquals(convertor.convertArabicNumberToRomanNumeral("1"), "I");
+		assertEquals("I", convertor.convertArabicNumberToRomanNumeral("1"));
 	}
 	
 	@Test
 	public void testRomanNumeralForTwo() {
-		assertEquals(convertor.convertArabicNumberToRomanNumeral("2"), "II");
+		assertEquals("II", convertor.convertArabicNumberToRomanNumeral("2"));
 	}
 	
 	@Test
 	public void testRomanNumeralslessThanEqualToFive() {
-		assertEquals(convertor.convertArabicNumberToRomanNumeral("3"), "III");
-		assertEquals(convertor.convertArabicNumberToRomanNumeral("4"), "IV");
-		assertEquals(convertor.convertArabicNumberToRomanNumeral("5"), "V");
+		assertEquals("III", convertor.convertArabicNumberToRomanNumeral("3"));
+		assertEquals("IV", convertor.convertArabicNumberToRomanNumeral("4"));
+		assertEquals("V", convertor.convertArabicNumberToRomanNumeral("5"));
+	}
+	
+	@Test
+	public void testRomanNumeralsBetweenSixAndTen() {
+		assertEquals("VI", convertor.convertArabicNumberToRomanNumeral("6"));
+		assertEquals("VII", convertor.convertArabicNumberToRomanNumeral("7"));
+		assertEquals("VIII", convertor.convertArabicNumberToRomanNumeral("8"));
+		assertEquals("IX", convertor.convertArabicNumberToRomanNumeral("9"));
+		assertEquals("X", convertor.convertArabicNumberToRomanNumeral("10"));
 	}
 }
