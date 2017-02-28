@@ -56,5 +56,16 @@ public class ArabicToRomanConvertorTest {
 	public void testRomanNumeralForOne() {
 		assertEquals(convertor.convertArabicNumberToRomanNumeral("1"), "I");
 	}
-
+	
+	@Test
+	public void testRomanNumeralForTwo() {
+		assertEquals(convertor.convertArabicNumberToRomanNumeral("2"), "II");
+	}
+	
+	@Test
+	public void testRomanNumeralslessThanEqualToFive() {
+		assertEquals(convertor.convertArabicNumberToRomanNumeral("3"), "III");
+		assertEquals(convertor.convertArabicNumberToRomanNumeral("4"), "IV");
+		assertEquals(convertor.convertArabicNumberToRomanNumeral("5"), "V");
+	}
 }
