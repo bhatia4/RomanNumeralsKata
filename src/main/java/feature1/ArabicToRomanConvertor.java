@@ -21,10 +21,16 @@ public class ArabicToRomanConvertor {
 		
 		if (inputArabicNumber == 0)
 			throw new InvalidArabicNumberException("No Zero value in Roman numerals");
+
+		//Dealing with 100s
+		quotient = inputArabicNumber / 100l;
+		remainder = inputArabicNumber % 100l;
+		if (quotient >= 1)
+			romanNumeral = repeatSymbolsByCount("C", quotient, romanNumeral);
 		
 		//Dealing w/ 90s, 50s, 40s
-		quotient = inputArabicNumber / 90l;
-		remainder = inputArabicNumber % 90l;
+		quotient = remainder / 90l;
+		remainder = remainder % 90l;
 		if (quotient == 1)
 			romanNumeral.append("XC");
 		else
@@ -45,7 +51,7 @@ public class ArabicToRomanConvertor {
 			quotient = remainder / 10l;
 			remainder = remainder % 10l;
 			if (quotient >= 1)
-				romanNumeral = convertForArabicNumberinTens(quotient, romanNumeral);
+				romanNumeral = repeatSymbolsByCount("X", quotient, romanNumeral);
 		}
 		
 		//Dealing w/ Units
@@ -66,22 +72,15 @@ public class ArabicToRomanConvertor {
 				if (quotient == 1)
 					romanNumeral.append("IV");
 			}
-			romanNumeral = convertForArabicNumberLessThan4(remainder, romanNumeral);
+			romanNumeral = repeatSymbolsByCount("I", remainder, romanNumeral);
 		}
 		
 		return romanNumeral.toString();
 	}
 
-	private StringBuilder convertForArabicNumberinTens(long inputArabicNumber, StringBuilder romanStr) {
-		for(int i=1; i<=inputArabicNumber;i++)
-			romanStr.append("X");
-
-		return romanStr;	
-	}
-		
-	private StringBuilder convertForArabicNumberLessThan4(long inputArabicNumber, StringBuilder romanStr) {
-		for(int i=1; i<=inputArabicNumber;i++)
-			romanStr.append("I");
+	private StringBuilder repeatSymbolsByCount(String symbol, long count,	StringBuilder romanStr) {
+		for(int i=1; i<=count;i++)
+			romanStr.append(symbol);
 
 		return romanStr;	
 	}

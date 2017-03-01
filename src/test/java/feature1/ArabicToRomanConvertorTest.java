@@ -124,4 +124,16 @@ public class ArabicToRomanConvertorTest {
 		assertEquals("LX", convertor.convertArabicNumberToRomanNumeral("60"));
 		assertEquals("LIX", convertor.convertArabicNumberToRomanNumeral("59"));
 	}
+	
+	@Test
+	public void testRomanNumeralsBetween100And399() {
+		assertEquals("C", convertor.convertArabicNumberToRomanNumeral("100"));
+		assertEquals("CXC", convertor.convertArabicNumberToRomanNumeral("190"));
+		assertEquals("CXCI", convertor.convertArabicNumberToRomanNumeral("191"));
+		assertEquals("CC", convertor.convertArabicNumberToRomanNumeral("200"));
+		assertEquals("CCXLV", convertor.convertArabicNumberToRomanNumeral("245"));
+		assertEquals("CCII", convertor.convertArabicNumberToRomanNumeral("202"));
+		assertEquals("CCC", convertor.convertArabicNumberToRomanNumeral("300"));
+		assertEquals("CCCXCIX", convertor.convertArabicNumberToRomanNumeral("399"));
+	}
 }
