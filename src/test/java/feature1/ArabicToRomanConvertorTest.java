@@ -136,4 +136,21 @@ public class ArabicToRomanConvertorTest {
 		assertEquals("CCC", convertor.convertArabicNumberToRomanNumeral("300"));
 		assertEquals("CCCXCIX", convertor.convertArabicNumberToRomanNumeral("399"));
 	}
+	
+	@Test
+	public void testRomanNumeralsBetween400And999() {
+		assertEquals("CMLXXXIX", convertor.convertArabicNumberToRomanNumeral("989"));
+		assertEquals("CMLXXXVIII", convertor.convertArabicNumberToRomanNumeral("988"));
+		assertEquals("CM", convertor.convertArabicNumberToRomanNumeral("900"));
+		assertEquals("DCCCXXXVIII", convertor.convertArabicNumberToRomanNumeral("838"));
+		assertEquals("DCCCI", convertor.convertArabicNumberToRomanNumeral("801"));
+		assertEquals("DCCC", convertor.convertArabicNumberToRomanNumeral("800"));
+		assertEquals("DCCLXXVIII", convertor.convertArabicNumberToRomanNumeral("778"));
+		assertEquals("DCC", convertor.convertArabicNumberToRomanNumeral("700"));
+		assertEquals("DC", convertor.convertArabicNumberToRomanNumeral("600"));
+		assertEquals("DXCIX", convertor.convertArabicNumberToRomanNumeral("599"));
+		assertEquals("D", convertor.convertArabicNumberToRomanNumeral("500"));
+		assertEquals("CDLXXXIII", convertor.convertArabicNumberToRomanNumeral("483"));
+		assertEquals("CD", convertor.convertArabicNumberToRomanNumeral("400"));
+	}
 }

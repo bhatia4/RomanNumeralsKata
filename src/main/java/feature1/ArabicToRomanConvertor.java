@@ -22,13 +22,33 @@ public class ArabicToRomanConvertor {
 		if (inputArabicNumber == 0)
 			throw new InvalidArabicNumberException("No Zero value in Roman numerals");
 
-		//Dealing with 100s
-		quotient = inputArabicNumber / 100l;
-		remainder = inputArabicNumber % 100l;
-		if (quotient >= 1)
-			romanNumeral = repeatSymbolsByCount("C", quotient, romanNumeral);
+		//Dealing w/ 900s, 500s, 400s & any leftover 100s
+		quotient = inputArabicNumber / 900l;
+		remainder = inputArabicNumber % 900l;
+		if (quotient == 1)
+			romanNumeral.append("CM");
+		else
+		{
+			quotient = remainder / 500l;
+			remainder = remainder % 500l;
+			if (quotient == 1)
+				romanNumeral.append("D");
+			else
+			{
+				quotient = remainder / 400l;
+				remainder = remainder % 400l;
+				if (quotient == 1)
+					romanNumeral.append("CD");
+			}
+
+			//Dealing with 100s
+			quotient = remainder / 100l;
+			remainder = remainder % 100l;
+			if (quotient >= 1)
+				romanNumeral = repeatSymbolsByCount("C", quotient, romanNumeral);
+		}
 		
-		//Dealing w/ 90s, 50s, 40s
+		//Dealing w/ 90s, 50s, 40s & any leftover 10s
 		quotient = remainder / 90l;
 		remainder = remainder % 90l;
 		if (quotient == 1)
