@@ -1,3 +1,6 @@
+/** 
+ * @author Kunal Bhatia
+ */
 package feature1;
 
 import static org.junit.Assert.*;
@@ -152,5 +155,16 @@ public class ArabicToRomanConvertorTest {
 		assertEquals("D", convertor.convertArabicNumberToRomanNumeral("500"));
 		assertEquals("CDLXXXIII", convertor.convertArabicNumberToRomanNumeral("483"));
 		assertEquals("CD", convertor.convertArabicNumberToRomanNumeral("400"));
+	}
+	
+	@Test
+	public void testRomanNumeralsBetween1000And3999() {
+		assertEquals("M", convertor.convertArabicNumberToRomanNumeral("1000"));
+		assertEquals("MI", convertor.convertArabicNumberToRomanNumeral("1001"));
+		assertEquals("MLXVI", convertor.convertArabicNumberToRomanNumeral("1066"));
+		assertEquals("MCMLXXXIX", convertor.convertArabicNumberToRomanNumeral("1989"));
+		assertEquals("MM", convertor.convertArabicNumberToRomanNumeral("2000"));
+		assertEquals("MMM", convertor.convertArabicNumberToRomanNumeral("3000"));
+		assertEquals("MMMCMXCIX", convertor.convertArabicNumberToRomanNumeral("3999"));
 	}
 }
