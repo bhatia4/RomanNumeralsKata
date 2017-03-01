@@ -22,24 +22,30 @@ public class ArabicToRomanConvertor {
 		if (inputArabicNumber == 0)
 			throw new InvalidArabicNumberException("No Zero value in Roman numerals");
 		
-		//Dealing w/ Tens (50s, 40s)
-		quotient = inputArabicNumber / 50l;
-		remainder = inputArabicNumber % 50l;
+		//Dealing w/ 90s, 50s, 40s
+		quotient = inputArabicNumber / 90l;
+		remainder = inputArabicNumber % 90l;
 		if (quotient == 1)
-			romanNumeral.append("L");
+			romanNumeral.append("XC");
 		else
 		{
-			quotient = remainder / 40l;
-			remainder = remainder % 40l;
+			quotient = remainder / 50l;
+			remainder = remainder % 50l;
 			if (quotient == 1)
-				romanNumeral.append("XL");
+				romanNumeral.append("L");
 			else
 			{
-				quotient = remainder / 10l;
-				remainder = remainder % 10l;
-				if (quotient >= 1)
-					romanNumeral = convertForArabicNumberinTens(quotient, romanNumeral);
-			}		
+				quotient = remainder / 40l;
+				remainder = remainder % 40l;
+				if (quotient == 1)
+					romanNumeral.append("XL");
+			}
+
+			//Dealing w/ 10s
+			quotient = remainder / 10l;
+			remainder = remainder % 10l;
+			if (quotient >= 1)
+				romanNumeral = convertForArabicNumberinTens(quotient, romanNumeral);
 		}
 		
 		//Dealing w/ Units
