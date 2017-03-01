@@ -22,41 +22,54 @@ public class ArabicToRomanConvertor {
 		if (inputArabicNumber == 0)
 			throw new InvalidArabicNumberException("No Zero value in Roman numerals");
 		
-		if (inputArabicNumber%10 == 0)
-			return "X";
+		//Dealing w/ Tens
+		quotient = inputArabicNumber / 40l;
+		remainder = inputArabicNumber % 40l;
+		if (quotient == 1)
+			romanNumeral.append("XL");
 		else
-			if (inputArabicNumber%9 == 0)
-				return "IX";
+		{
+			quotient = remainder / 10l;
+			remainder = remainder % 10l;
+			if (quotient >= 1)
+				romanNumeral = convertForArabicNumberinTens(quotient, romanNumeral);
+		}		
+		
+		//Dealing w/ Units
+		quotient = remainder / 9l;
+		remainder = remainder % 9l;
+		if (quotient == 1)
+			romanNumeral.append("IX");
+		else
+		{
+			quotient = remainder / 5l;
+			remainder = remainder % 5l;
+			if (quotient == 1)
+				romanNumeral.append("V");
 			else
 			{
-				quotient = inputArabicNumber / 5l;
-				remainder = inputArabicNumber % 5l;
+				quotient = remainder / 4l;
+				remainder = remainder % 4l;
 				if (quotient == 1)
-					romanNumeral.append("V");
-				else
-				{
-					quotient = inputArabicNumber / 4l;
-					remainder = inputArabicNumber % 4l;
-					if (quotient == 1)
-						romanNumeral.append("IV");
-				}
-
-				return convertForArabicNumberLessThan4(remainder, romanNumeral);
+					romanNumeral.append("IV");
 			}
-				
-/*		if (inputArabicNumber%5 == 0)
-				return "V";
-			else
-				if (inputArabicNumber%4 == 0)
-					return "IV";
-				else
-					return convertForArabicNumberLessThan4(inputArabicNumber);*/
+			romanNumeral = convertForArabicNumberLessThan4(remainder, romanNumeral);
+		}
+		
+		return romanNumeral.toString();
 	}
 
-	private String convertForArabicNumberLessThan4(long inputArabicNumber, StringBuilder romanStr) {
+	private StringBuilder convertForArabicNumberinTens(long inputArabicNumber, StringBuilder romanStr) {
+		for(int i=1; i<=inputArabicNumber;i++)
+			romanStr.append("X");
+
+		return romanStr;	
+	}
+		
+	private StringBuilder convertForArabicNumberLessThan4(long inputArabicNumber, StringBuilder romanStr) {
 		for(int i=1; i<=inputArabicNumber;i++)
 			romanStr.append("I");
 
-		return romanStr.toString();	
+		return romanStr;	
 	}
 }

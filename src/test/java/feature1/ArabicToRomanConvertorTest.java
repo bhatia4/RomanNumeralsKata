@@ -77,4 +77,28 @@ public class ArabicToRomanConvertorTest {
 		assertEquals("IX", convertor.convertArabicNumberToRomanNumeral("9"));
 		assertEquals("X", convertor.convertArabicNumberToRomanNumeral("10"));
 	}
+	
+	
+	@Test
+	public void testRomanNumeralsBetween11And40() {
+		assertEquals("XL", convertor.convertArabicNumberToRomanNumeral("40"));
+		assertEquals("XXX", convertor.convertArabicNumberToRomanNumeral("30"));
+		assertEquals("XX", convertor.convertArabicNumberToRomanNumeral("20"));
+		
+		assertEquals("XXXIX", convertor.convertArabicNumberToRomanNumeral("39"));
+		assertEquals("XXXVII", convertor.convertArabicNumberToRomanNumeral("37"));
+		assertEquals("XXXV", convertor.convertArabicNumberToRomanNumeral("35"));
+		assertEquals("XXXIV", convertor.convertArabicNumberToRomanNumeral("34"));
+		assertEquals("XXXI", convertor.convertArabicNumberToRomanNumeral("31"));
+		
+		assertEquals("XXVIII", convertor.convertArabicNumberToRomanNumeral("28"));
+		assertEquals("XXIV", convertor.convertArabicNumberToRomanNumeral("24"));
+		assertEquals("XXIII", convertor.convertArabicNumberToRomanNumeral("23"));
+
+		assertEquals("XIX", convertor.convertArabicNumberToRomanNumeral("19"));		
+		assertEquals("XVI", convertor.convertArabicNumberToRomanNumeral("16"));
+		assertEquals("XV", convertor.convertArabicNumberToRomanNumeral("15"));
+		assertEquals("XIV", convertor.convertArabicNumberToRomanNumeral("14"));
+		assertEquals("XI", convertor.convertArabicNumberToRomanNumeral("11"));
+	}
 }
