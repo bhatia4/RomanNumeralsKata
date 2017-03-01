@@ -167,4 +167,9 @@ public class ArabicToRomanConvertorTest {
 		assertEquals("MMM", convertor.convertArabicNumberToRomanNumeral("3000"));
 		assertEquals("MMMCMXCIX", convertor.convertArabicNumberToRomanNumeral("3999"));
 	}
+	
+	@Test(expected=InvalidArabicNumberException.class)
+	public void testForNumberGreaterThan3999() {
+		convertor.convertArabicNumberToRomanNumeral("25000");
+	}
 }
